@@ -1,5 +1,6 @@
 ## Autor: Natanael Pérez Veas - 2026
 Proyecto base para desarrollo educativo y demostraciones prácticas con Node.js y Express.
+	
 	- Drive: https://drive.google.com/drive/folders/1lGqvrUBW5FkHk1dxDfoK6VnQ6l9gPoQc?usp=sharing
 	- Proyecto Github: https://github.com/nathanpeve/ExamenModulo6
 
@@ -185,26 +186,22 @@ El proyecto expone:
 
 ## 6.- Entrega ##
 
-1.  Repositorio en GitHub 
-	- Estructura clara del proyecto (carpetas, archivos fuente y README.md). 
-	- Commit inicial y commits parciales que den cuenta del desarrollo. 
-	- Scripts de ejecución funcionales: npm run dev, npm start
-
-2.  Carpeta en Google Drive compartida 
-	- Nombre sugerido:   TP Integrador JS - [Tu Nombre y Apellido]: Listo
-	- Subcarpeta para la Parte 1: Parte 1 – Módulo 6 o Contenidosmínimos:   
-		- Capturas de pantalla del servidor en funcionamiento: Listo
-		- Capturas del uso de rutas (/, /status) y archivos planos (log.txt): Listo 
- 		- Documento breve con reflexiones técnicas (puede ser parte del README o un archivo .md/.pdf por separado): Listo
+	1.  Repositorio en GitHub 
+		- Estructura clara del proyecto (carpetas, archivos fuente y README.md). 
+		- Commit inicial y commits parciales que den cuenta del desarrollo. 
+		- Scripts de ejecución funcionales: npm run dev, npm start
+	2.  Carpeta en Google Drive compartida 
+		- Nombre sugerido:   TP Integrador JS - [Tu Nombre y Apellido]: Listo
+		- Subcarpeta para la Parte 1: Parte 1 – Módulo 6 o Contenidosmínimos:   
+			- Capturas de pantalla del servidor en funcionamiento: Listo
+			- Capturas del uso de rutas (/, /status) y archivos planos (log.txt): Listo 
+ 			- Documento breve con reflexiones técnicas (puede ser parte del README o un archivo .md/.pdf por separado): Listo
 
 -------------------------------------------------------------------------------------------------------------------------------
 
 # PARTE 4 Reflexiones Técnicas Módulo 6 # 
 
-Organización de Arbol: Permite no perderse entre todo el código si se entiende la lógica.
-
-Bootstrap implementado: Permite diseño agradable y sencillo de entender de html.
-
-Log diario con fecha: Permite revisar el codigo de forma mas ordenada en caso de errores y evidenciar todas las acciones realizadas.
-
-.env Permite cambiar valores sin tocar el codigo como el puerto.
+	- Organización de Arbol: Permite no perderse entre todo el código si se entiende la lógica.
+	- Bootstrap implementado: Permite diseño agradable y sencillo de entender de html.
+	- Log diario con fecha: Permite revisar el codigo de forma mas ordenada en caso de errores y evidenciar todas las acciones realizadas.
+	- .env Permite cambiar valores sin tocar el codigo como el puerto.
