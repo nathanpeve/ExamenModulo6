@@ -31,10 +31,10 @@ function log(mensaje) {
     // \n salto de línea
     const linea = `${fecha} | ${hora} | ${mensaje}\n`;
 
-    // appendFile -  contenido al final del archivo
-    // Si el archivo no existe, Node lo crea
+    // appendFile agrega el contenido al final del archivo
+    // Si el archivo no existe, Node lo crea automáticamente
     fs.appendFile(rutaLog, linea, (err) => {
-
+        
         // Si error al escribir, console.log
         if (err) {
             console.error('Error escribiendo log:', err);

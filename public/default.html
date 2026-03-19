@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/principal.html">Gestión de Portafolios</a>
@@ -16,7 +17,6 @@
                 <span id="nombre_usuario"></span>
                 <button class="btn btn-outline-light ms-3" onclick="logout()">Salir</button>
             </div>
-
         </div>
     </nav>
 
@@ -24,15 +24,18 @@
         <div class="row">
             <div class="col-md-2 bg-light vh-100">
                 <h6 class="mt-3">Menú</h6>
-                <ul id="menu" class="nav flex-column"></ul>
+                <ul id="menu" class="nav flex-column mt-3"></ul>
             </div>
             <div class="col-md-10 p-4">
-                <h3>Bienvenido</h3>
-                <p>Seleccione una opción del menú</p>
+                <h3 id="tituloModulo"></h3>
+                <p class="text-muted">Módulo en construcción</p>
             </div>
         </div>
     </div>
+
     <script src="/js/menu.js"></script>
+    <script src="/js/default.js"></script>
+
 </body>
 
 </html>
