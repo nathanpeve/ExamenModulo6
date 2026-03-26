@@ -43,7 +43,14 @@ Proyecto base para desarrollo educativo y demostraciones prácticas con Node.js 
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-# PARTE 2 Estructura y Objetivos de Proyecto # 
+# PARTE 2 Autenticación #
+
+La base de datos está conectada a SQL
+para ver todas las opciones debes iniciar sesión con un usuario que tenga el rol de Administrador
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+# PARTE 3 Estructura y Objetivos de Proyecto # 
 
 ## App-01 — Node Express WebApp
 	- Aplicación web base construida con **Node.js + Express**, diseñada como punto de partida para un sistema de gestión de cartera de inversiones.
@@ -70,7 +77,7 @@ El proyecto expone:
 	- Express
 	- CORS
 	- dotenv
-	- MSSQL (preparado para futuras versiones)
+	- PostgreSQL / Neon Cloud"
 	- Nodemon (desarrollo)
 
 ##  Estructura del proyecto
@@ -174,8 +181,7 @@ ExamenModulo6-7-8/
 │           fileLogger.js  
 │           response.js  
 │  
-└───uploads  
-        1773881753740.txt  
+└───uploads    
 
 ## Convenciones del proyecto
 
@@ -184,13 +190,88 @@ ExamenModulo6-7-8/
 	* `/utils` → herramientas reutilizables
 	* `/middlewares` → lógica transversal (logging, auth, etc.)
 
-## Próximas versiones
-	- Trabajo ABP 8 - 
-		- Estructurar  las  respuestas  de  la  API  con  formato  consistente  (  status, message, data  ). 
+-------------------------------------------------------------------------------------------------------------------------------
+# ITEM ITERACIONES Y MEJORAS GRADUALES: check de objetivos de Examen de Módulos 8, 7 y 6 (de abajo hacia arriba) #
+-------------------------------------------------------------------------------------------------------------------------------
+
+# PARTE 4 - Objetivos de Examen Módulo 8 y Cumplimientos # 
+
+## 1.- APIs RESTful: ##
+	- Diseñar y esquematizar los endpoints principales de tu app. 
+			✔  en emisorRoutes.js Linea 6 por medio de linea ('/', controller.getAll)
+	- Aplicar convenciones REST en nombres, métodos y rutas. 
+			✔ operacionesRoutes.js Linea 5 por medio de router.get()
+	- Usar herramientas como Postman o Swagger para testear la estructura. 
+			✔ Por medio de capturas 
+		- Al menos 4 endpoints bien definidos (/usuarios, /productos, etc.) 
+				✔ index.js, Lineas 31 en adelante con /auth, /emisores etc.
+		- Métodos GET, POST, PUT, DELETE aplicados correctamente. 
+				✔  emisorRoutes.js, uso de router.post y router.delete
+
+## 2.- Implementando una API REST: ##
+	- Crear controladores que manejen la lógica de cada recurso. 
+			✔  emisorController.js Linea 5 con getAll: async (req, res)
+	- Validar inputs y devolver errores controlados. 
+			✔ emisorController.js , devuelve error multiples errores como 400, 500, 201
+	- Organizar las rutas en archivos separados. 
+			✔ carpeta routes
+	- Requerimientos mínimos: 
+		- Endpoints funcionales y conectados a DB. 
+				✔  emisormodel.js lineas conectadas a query
+		- Estructura  controllers/, routes/, middlewares/. 
+				✔ 
+		- ¿Cómo decidiste separar tus rutas y controladores? 
+		- ¿Qué  validaciones realizaste antes de insertar/modificar datos?
+				R: estan separados gracias a authServices, se verifican las contraseñas y roles gracias a la implementación de funcionamiento de sql junto con código
+
+## 3.- Subida de archivos al servidor: ##
+ 	- Instalar y configurar multer o herramienta equivalente. 
+			✔ upload.js
+	- Crear endpoint POST /upload que reciba un archivo. 
+			✔ precioRoutes.js Linea 7 hay un post
+	- Guardar los archivos en una carpeta pública. 
+			✔ index.js Linea 28
+	- Requerimientos mínimos: 
+		- Subida funcional de archivos con tipo controlado. 
+				✔ upload.js en middlewares Linea 12 es una funcion
+		- Carpeta  uploads/  organizada y accesible. 
+				✔ 
+
+## 4.- Securización mediante JWT: ## 
+	- Crear login (POST/login) que genere un JWT válido. 
+			✔ authController.js Linea 17 tiene un const token con jwt
+	- Proteger rutas con middleware de validación de token. 
+			✔ emisorRoutes.js Linea 7 tiene router.post con authMiddleware
+	- Verificar expiración y validez del token. 
+			✔ authMiddleware.js linea14 tiene un jwt.verify
+	- Requerimientos mínimos: 
+		- Al menos 2 rutas protegidas que no funcionen sin token. 
+				✔ los proteccion en lineas con verificarToken menuRoutes.js e instrumentoRoutes.js
+		- Instrucciones claras de cómo autenticarse.  
+				✔ 
+	- ¿Por qué decidiste proteger esas rutas? 
+	- ¿Dónde y cómo almacenas el token? 
+		R: las rutas fueron protegidas porque tienen info sensible, a la que solo deberían acceder admins. por medio de un localStorage se almacena el login exitoso de la misma forma en que aparece el nombre de usuario en el nav
+
+## 5.- Entregables: ## 
+	- Repositorio actualizado ✔
+		- Nuevas rutas, controladores y middlewares. ✔ 
+		- Estructura clara y finalizada del backend. ✔ 
+		- Archivo  README.md con instrucciones de autenticación y endpoints. ✔ - no seguro de implementaciòn de endpoints en readme
+	- Subcarpeta en Drive:  Parte 3 – Módulo 8 ✔ 
+		- Capturas de tests realizados con Postman o similar. ✔
+		- Evidencias de rutas protegidas, respuestas con error y éxito. ✔
+		- Captura de subida de archivos y su vinculación con la base de datos. ✔
+	- Iteraciones y mejoras ✔
+		- Si hiciste ajustes en partes anteriores (estructura, modelos, validaciones), incluye una breve nota o commit que explique el cambio. ✔
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-# PARTE 3 - Objetivos de Examen Módulo 7 y Cumplimientos # 
+# INFORMACIÓN LEGADO (MÓDULOS PREVIOS) # 
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+# PARTE 5 - Objetivos de Examen Módulo 7 y Cumplimientos # 
 
 ## 1.- Conexión a una base de datos: ##
 	- Configurar una conexión estable y segura entre el servidor Node y una base de datos relacional (MySQL)
@@ -295,11 +376,7 @@ ExamenModulo6-7-8/
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-# INFORMACIÓN LEGADO (MÓDULOS PREVIOS) # 
-
--------------------------------------------------------------------------------------------------------------------------------
-
-# PARTE 4 - Objetivos de Examen Módulo 6 y cumplimiento # 
+# PARTE 6 - Objetivos de Examen Módulo 6 y cumplimiento # 
 
 ## 1.- Instalación y configuración de Node: ##
 	- Instalar Node.js correctamente (mínimo versión 18).
